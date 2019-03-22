@@ -1,18 +1,16 @@
 package AFK.demo;
 
-import javax.persistence.Embeddable;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Embeddable
 public class MemberIdentity implements Serializable {
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user.username")
     private User member;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "project.id")
     private Project project;
 
@@ -37,6 +35,6 @@ public class MemberIdentity implements Serializable {
 
     @Override
     public int hashCode() {
-        return member.hashCode()*31+project.hashCode();
+        return Objects.hash(project,member);
     }
 }

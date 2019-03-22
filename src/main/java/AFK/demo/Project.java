@@ -8,13 +8,13 @@ public class Project {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user.username")
-    private User owner;
+    User owner;
 
     @Id
     @NotNull
-    private String id;
+    String id;
 
-    private String decsription;
+    String decsription;
 
     private String kontakt;
 

@@ -1,15 +1,14 @@
 package AFK.demo;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Skill {
-    @Id
-    private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user.username")
-    private User user;
-
+    @EmbeddedId
+    private SkillKey skillId;
+    @NotNull
+    private int level;
 
 }

@@ -20,7 +20,7 @@ public class User {
 
     private String email;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, orphanRemoval = false)
+    @OneToMany(mappedBy = "skillId.userId", fetch = FetchType.LAZY, orphanRemoval = false)
     private List<Skill> listOfSkills = new ArrayList<>();
 
     public String getId() {

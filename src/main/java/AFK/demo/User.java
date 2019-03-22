@@ -1,8 +1,12 @@
 package AFK.demo;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity // This tells Hibernate to make a table out of this class
 public class User {
@@ -16,8 +20,8 @@ public class User {
 
     private String email;
 
-//    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, orphanRemoval = false)
-//    private List<Skill> listOfSkills = new ArrayList<>();
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, orphanRemoval = false)
+    private List<Skill> listOfSkills = new ArrayList<>();
 
     public String getId() {
         return username;

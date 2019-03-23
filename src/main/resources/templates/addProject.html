@@ -11,18 +11,27 @@
 
 <body>
 
-
-
+<div class="wrapper">
 <h1>Create your project</h1>
-<div class="form-style-5"></div>
 <form action="#" method="post" th:action="@{/addProject}" th:object="${project}">
-    <p>Nazwa: <input type="text" th:field="*{id}" /></p>
-    <p>Description: <input type="text" th:field="*{description}" /></p>
-    <p>How to contact me: <input type="text" th:field="*{kontakt}" /></p>
-    <p>Maxium number of Members: <input type="number" th:field="*{max_member}" /></p>
-    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    <p>Nazwa:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <input class="input" type="text" th:field="*{id}" /></p>
+    <p>Description:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <input type="text" class="input" th:field="*{description}" /></p>
+    <p>How to contact me:p&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <input type="text" class="input" th:field="*{kontakt}" /></p>
+    <p>Maxium number of Members: &nbsp<input type="number" class="input" th:field="*{max_member}" /></p><br><br><br>
+    <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <input type="submit" class="myButton" value="Submit" /> <input type="reset" class="myButton" value="Reset" /></p>
 </form>
-<<<<<<< HEAD
+</div>
 </div>
 
 

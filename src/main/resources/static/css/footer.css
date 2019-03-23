@@ -1,0 +1,17 @@
+:root {
+    --main: #2C1320;
+    --bcolor: #f4f4f4;
+    --second: #FFE8D1;
+    --nieb: #568EA3;
+    --szar: #748B75;
+    --ostat: #503D42;
+
+}
+body{
+    color: black;
+}
+
+.footerImg{
+    width: 10%;
+    height: auto;
+}

@@ -11,6 +11,35 @@
 
 <body>
 
+
+        <nav> 
+        
+                <img id="nav-icon" src="images/icon.png"> 
+                <div id="nazwaApki">NazwaApki</div>
+                
+                <div id="search-container">
+                <form action="???????">
+                    <input type="text" placeholder="Search for projects" name="search">
+                    <button type="submit">Search</button>
+                </form>
+                </div>
+        
+                <div id="menu-container">
+                    <ul>
+                        <li><a href="index.html">GO PREMIUM</a></li>
+                        <li> <a href="profile.html"> <img id="login-icon" src="images/login-icon.png"></a></li>
+                        <li><a href="index.html">My Projects</a></li>
+        
+                    </ul>
+        
+        
+                </div>
+        
+            </nav>
+        
+
+
+
 <div class="wrapper">
 <h1>Create your project</h1>
 <form action="#" method="post" th:action="@{/addProject}" th:object="${project}">
@@ -32,35 +61,9 @@
             <input type="submit" class="myButton" value="Submit" /> <input type="reset" class="myButton" value="Reset" /></p>
 </form>
 </div>
+<div id="footer">
+         <img id="footerImg" style="width: 100%; padding-top: 100px;"  src="C:\Users\fmart\Desktop\GitHub\AFK\src\main\resources\static\images\beach-ocean-outdoors-1756665.jpg">
 </div>
-
-
-
-<nav> 
-        
-        <img id="nav-icon" src="images/icon.png"> 
-        <div id="nazwaApki">NazwaApki</div>
-        
-        <div id="search-container">
-        <form action="???????">
-            <input type="text" placeholder="Search for projects" name="search">
-            <button type="submit">Search</button>
-        </form>
-        </div>
-
-        <div id="menu-container">
-            <ul>
-                <li><a href="index.html">GO PREMIUM</a></li>
-                <li> <a href="profile.html"> <img id="login-icon" src="images/login-icon.png"></a></li>
-                <li><a href="index.html">My Projects</a></li>
-
-            </ul>
-
-
-        </div>
-
-    </nav>
-
 
 </body>
 </html>

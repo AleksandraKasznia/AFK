@@ -36,8 +36,14 @@ public class UserController {
         return "profile";
     }
 
+    @GetMapping("/addUser")
+    public String addUser(Model model){
+        User user = new User();
+        model.addAttribute("user",user);
+        return "addUser";
+    }
     @PostMapping("/addUser")
-    public String addUser(@ModelAttribute("userForm")User user,
+    public String addUser(@ModelAttribute("/addUser")User user,
                           BindingResult result, Model model,
                           final RedirectAttributes redirectAttributes){
         userRepository.save(user);

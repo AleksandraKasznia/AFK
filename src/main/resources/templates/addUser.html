@@ -3,9 +3,39 @@
 <head>
     <title>Getting Started: Handling Form Submission</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+    <link rel="stylesheet" href="header-style.css">
+    <link rel="stylesheet" href="user-style.css">
 </head>
 <body>
-<h1>Form</h1>
+        <nav> 
+        
+                <img id="nav-icon" th:src="@{/images/icon.png}" src="images/icon.png">
+                <div id="nazwaApki">NazwaApki</div>
+                
+                <div id="search-container">
+                <form action="???????">
+                    <input type="text" placeholder="Search for projects" name="search">
+                    <button type="submit">Search</button>
+                </form>
+                </div>
+        
+                <div id="menu-container">
+                    <ul>
+                        <li><a href="index.html">GO PREMIUM</a></li>
+                        <li> <a href="profile/kazar"> <img id="login-icon" th:src="@{/images/login-icon.png}"  src="images/login-icon.png"></a></li>
+                        <li><a href="index.html">My Projects</a></li>
+        
+                    </ul>
+        
+        
+                </div>
+        
+            </nav>
+
+
+<div id="wrapper">
 <form action="#" method="post" th:action="@{/addUser}" th:object="${user}">
     <p>Username: <input type="text" th:field="*{id}" /></p>
     <p>Password: <input type="text" th:field="*{password}" /></p>
@@ -13,5 +43,6 @@
     <p>Email: <input type="text" th:field="*{email}" /></p>
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 </form>
+</div>
 </body>
 </html>

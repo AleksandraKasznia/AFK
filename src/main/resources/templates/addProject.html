@@ -3,14 +3,53 @@
 <head>
     <title>Getting Started: Handling Form Submission</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet"  href="C:\Users\fmart\Desktop\GitHub\AFK\src\main\resources\static\css\form-css.css">
+    <link rel="stylesheet" th:href="@{/css/header-style.css}" href="css/header-style.css">
 </head>
+
+
 <body>
-<h1>Form</h1>
+
+
+
+<h1>Create your project</h1>
+<div class="form-style-5"></div>
 <form action="#" method="post" th:action="@{/addProject}" th:object="${project}">
     <p>Description: <input type="text" th:field="*{description}" /></p>
-    <p>Kontakt: <input type="text" th:field="*{kontakt}" /></p>
-    <p>Maxium Members: <input type="text" th:field="*{max_member}" /></p>
+    <p>How to contact me: <input type="text" th:field="*{kontakt}" /></p>
+    <p>Maxium number of Members: <input type="number" th:field="*{max_member}" /></p>
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 </form>
+</div>
+
+
+
+<nav> 
+        
+        <img id="nav-icon" src="images/icon.png"> 
+        <div id="nazwaApki">NazwaApki</div>
+        
+        <div id="search-container">
+        <form action="???????">
+            <input type="text" placeholder="Search for projects" name="search">
+            <button type="submit">Search</button>
+        </form>
+        </div>
+
+        <div id="menu-container">
+            <ul>
+                <li><a href="index.html">GO PREMIUM</a></li>
+                <li> <a href="profile.html"> <img id="login-icon" src="images/login-icon.png"></a></li>
+                <li><a href="index.html">My Projects</a></li>
+
+            </ul>
+
+
+        </div>
+
+    </nav>
+
+
 </body>
 </html>

@@ -36,7 +36,7 @@ public class UserController {
         return "profile";
     }
 
-    @PostMapping("/user/add")
+    @PostMapping("/addUser")
     public String addUser(@ModelAttribute("userForm")User user,
                           BindingResult result, Model model,
                           final RedirectAttributes redirectAttributes){

@@ -1,5 +1,6 @@
 :root {
     --main: #2C1320;
+    --bcolor: #efdadf;
     --second: #FFE8D1;
     --nieb: #568EA3;
     --szar: #748B75;
@@ -13,7 +14,7 @@
 }
 
 body {
-    background-color: var(--main);
+    background-color: var(--bcolor);
 }
 
 #wrapper {
@@ -33,12 +34,18 @@ body {
 .description {
 
     font-family: 'Lato', sans-serif;
-    color: var(--second);
+    color: var(--main);
     font-size: 20px;
     padding-left: 40px;
     text-align: justify;
 }
 
-#name {
-    font-size: 30px; 
+
+#username{
+    font-size: 40px;
+    font-weight: bold;
+}
+
+#label{
+    font-size: 35px;
 }

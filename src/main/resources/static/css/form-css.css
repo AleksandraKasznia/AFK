@@ -11,9 +11,7 @@
     margin: 0px;
     padding: 0%;
     font-family: 'Lato', sans-serif;
-    color: var(--second);
-
-
+    color: #0c1b38;
 }
 
 body {
@@ -23,8 +21,6 @@ body {
 a {
     text-decoration: none;
 }
-
-
 
 header {
     margin-top: 150px;
@@ -37,12 +33,21 @@ header {
     max-width: 550px;
     width: 100%;
 }
-* {
-    margin: 0px;
-    padding: 0%;
-    font-family: 'Lato', sans-serif;
-    color: var(--second);
 
-
+#wrapper{
+	max-width: 500px;
+	padding: 10px 20px;
+	background: #f4f7f8;
+	margin: 10px auto;
+	border-radius: 8px;
+	font-family: Georgia, "Times New Roman", Times, serif;
 }
+wrapper fieldset{
+	border: none;
+}
+wrapper legend {
+	font-size: 1.4em;
+	margin-bottom: 10px;
+}
+
 

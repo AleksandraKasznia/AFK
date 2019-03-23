@@ -1,9 +1,12 @@
 package AFK.demo;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 @Controller
 public class GreetingController {
@@ -16,21 +19,13 @@ public class GreetingController {
 
 
     @GetMapping("/greeting")
-    public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
+    public String greeting(@RequestParam(name="name", required=true, defaultValue="World") String name, Model model) {
         model.addAttribute("name", name);
-        User u = new User();
-        u.setId(name);
-        u.setEmail("mail");
-        u.setName(name);
-        userRepository.save(u);
-
-        Project p = new Project();
-        p.id="ABD";
-        p.owner=u;
-        projectRepository.save(p);
-
-        Members m = new Members(u,p);
-        memberRepository.save(m);
+        User u = userRepository.findById(name).get();
+        List<Project> proj = projectRepository.getProjectByUser(u.getId());
+        System.out.println("proj = " + proj);
+        for(Project p:proj)
+            System.out.println("p.id = " + p.id);
         return "greeting";
     }
 

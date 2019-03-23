@@ -1,0 +1,53 @@
+:root {
+    --main: #2C1320;
+    --second: #FFE8D1;
+    --nieb: #568EA3;
+    --szar: #748B75;
+    --ostat: #503D42;
+
+}
+
+
+* {
+    margin: 0px;
+    padding: 0%;
+    font-family: 'Lato', sans-serif;
+    color: var(--second);
+
+
+}
+
+body {
+    background: var(--main);
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+header {
+    margin-top: 150px;
+    width: 100%;
+    text-align: center;
+}
+
+
+#logo-img {
+    max-width: 550px;
+    width: 100%;
+}
+
+
+#proj-descr {
+    padding-top: 100px;
+    font-size: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    text-align: justify;
+}
+

@@ -1,0 +1,62 @@
+<!doctype html>
+
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8">
+  <title>HACKATHON!!</title>
+  <meta name="description" content="HACKATHON">
+  <meta name="author" content="AFK">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/css/header-style.css}" href="css/header-style.css">
+  <link rel="stylesheet" th:href="@{/css/profile-css.css}" href="css/profile-css.css">
+</head>
+
+<body>
+
+        <nav> 
+        
+                <img id="nav-icon" th:src="@{/images/icon.png}" src="images/icon.png">
+                <div id="nazwaApki">NazwaApki</div>
+                
+                <div id="search-container">
+                <form action="???????">
+                    <input type="text" placeholder="Search for projects" name="search">
+                    <button type="submit">Search</button>
+                </form>
+                </div>
+        
+                <div id="menu-container">
+                    <ul>
+                        <li><a href="index.html">GO PREMIUM</a></li>
+                        <li> <a href="profile/kazar"> <img id="login-icon" th:src="@{/images/login-icon.png}"  src="images/login-icon.png"></a></li>
+                        <li><a href="index.html">My Projects</a></li>
+        
+                    </ul>
+        
+        
+                </div>
+        
+            </nav>
+
+
+
+            <div id="wrapper">
+
+                <img th:src="@{/images\default-avatar.png}" src="images\default-avatar.png" class = "avatar">
+                
+                <div class="description">
+                <span id="name">About me</span>
+                <br>
+                    <p th:text="${userId}" />
+                    <p th:text="${name}" />
+                    <p th:text="${email}" />
+                    <p th:text="${skills}" />
+                Etiam tempor, diam id venenatis ullamcorper, lectus sapien pulvinar quam, eget pharetra libero erat sed dui. Praesent at semper orci. Morbi interdum finibus urna. Ut vitae odio malesuada, sagittis dui sit amet, aliquam eros. Nulla consequat leo non nunc hendrerit scelerisque. In hac habitasse platea dictumst. Integer ut erat non risus fringilla eleifend sed ac odio. Nulla laoreet purus sem, quis ultricies neque dictum nec.
+            
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+        
+
+</body>
+</html>

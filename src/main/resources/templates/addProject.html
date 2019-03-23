@@ -10,10 +10,10 @@
     <p>Description: <input type="text" th:field="*{description}" /></p>
     <p>Kontakt: <input type="text" th:field="*{kontakt}" /></p>
     <p>Maxium Members: <input type="text" th:field="*{max_member}" /></p>
+    <p><select th:each="skill : ${skills}">
+        <option value="${skill}" th:text="${skill}"></option>
+    </select></p>
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 </form>
-<select th:each="skill : ${skills}">
-    <option value="${skill}" th:text="${skill}"></option>
-</select>
 </body>
 </html>

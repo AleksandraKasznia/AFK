@@ -8,7 +8,7 @@
   <meta name="author" content="AFK">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
-  <link rel="stylesheet"  th:href="@{/css/style.css}" href="../static/css/style.css">
+  <link rel="stylesheet"  th:href="@{/css/profile-css.css}" href="../static/css/style.css">
   <link rel="stylesheet"  th:href="@{/css/header-style.css}" href="../static/css/header-style.css">
   
 </head>
@@ -49,8 +49,11 @@
 
     <div th:each="project  :${projects}">
         <div class="project" th:with="pname= ${project.id}">
-            <p th:text="${pname}"></p>
-            <a th:href="@{|/project/${pname}|}" >More</a>
+
+            <div class="ProjName" th:text="${pname}"></div>
+            <div class="Description" th:text="${project.description}"></div>
+            <div class="Skills">XD</div>
+
         </div>
     </div>
 

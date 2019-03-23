@@ -47,7 +47,7 @@ public class UserController {
                           BindingResult result, Model model,
                           final RedirectAttributes redirectAttributes){
         userRepository.save(user);
-        return "/";
+        return "/profile/"+user.getId();
     }
 
 }

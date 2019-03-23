@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html lang="pl">
+<html lang="pl" xmlns:th="http://www.springframework.org/schema/data/jaxb">
 <head>
   <meta charset="utf-8">
   <title>HACKATHON!!</title>
@@ -8,8 +8,8 @@
   <meta name="author" content="AFK">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/header-style.css">
+  <link rel="stylesheet"  th:href="@{/css/style.css}" href="../static/css/style.css">
+  <link rel="stylesheet"  th:href="@{/css/header-style.css}" href="../static/css/header-style.css">
   
 </head>
 
@@ -17,11 +17,11 @@
 
     <nav> 
         
-        <img id="nav-icon" src="images/icon.png">
+        <img id="nav-icon" th:src="@{/images/icon.png}" src="../static/images/icon.png">
         <div id="nazwaApki">NazwaApki</div>
         
         <div id="search-container">
-        <form action="???????">
+        <form action="/projects/">
             <input type="text" placeholder="Search for projects" name="search">
             <button type="submit">Search</button>
         </form>
@@ -30,7 +30,7 @@
         <div id="menu-container">
             <ul>
                 <li><a href="index.html">GO PREMIUM</a></li>
-                <li> <a href="profile/kazar"> <img id="login-icon" src="images/login-icon.png"></a></li>
+                <li> <a th:href="@{|profile/${login}|}"> <img id="login-icon" th:src="@{/images/login-icon.png}" src="../static/images/login-icon.png"></a></li>
                 <li><a href="index.html">My Projects</a></li>
 
             </ul>
@@ -42,7 +42,7 @@
 
     <header>
         
-        <img id="logo-img" src="images/logo1.png">
+        <img id="logo-img" th:src="@{/images/logo1.png}" src="../static/images/logo1.png">
         
 
     </header>

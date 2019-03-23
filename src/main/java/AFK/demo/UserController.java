@@ -20,12 +20,19 @@ public class UserController {
     @Autowired
     private ProjectRepository projectRepository;
 
+    @GetMapping("/")
+    public String printUser(@CookieValue(name="login" , defaultValue = "kazar") String login, Model model) {
+        model.addAttribute("login", login);
+        return "index";
+    }
+
     @GetMapping("/profile/{userId}")
     public String printUser(@CookieValue(name="login" , defaultValue = "kazar") String login, @PathVariable(name="userId") String userId, Model model) {
         model.addAttribute("userId", userId);
         String user="";
         User myUser = userRepository.findById(userId).get();
         List<Skill> skills = skillRepository.findUsersSkills(userId);
+        model.addAttribute("login", login);
         model.addAttribute("userId",":"+user);
         model.addAttribute("name",":"+myUser.getName());
         model.addAttribute("email",":"+myUser.getEmail());

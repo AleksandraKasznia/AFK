@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -23,9 +24,22 @@ public class ProjectController {
     @Autowired
     protected ProjectSkillRepository projectSkillRepository;
 
+    @GetMapping("/projects")
+    public String searchProjects(@CookieValue(name="login" , defaultValue = "kazar") String login,@RequestParam(name="search",required=false) String  search,Model model){
+        model.addAttribute("login", login);
+        List<Project> projects;
+        projects = projectRepository.getProjectByUser(login);
+
+        if(projects==null)
+            projects = Collections.EMPTY_LIST;
+        model.addAttribute("projects",projects);
+        return "projects";
+    }
+
     @GetMapping("/project/{id}")
     public String searchProject(@CookieValue(name="login" , defaultValue = "kazar") String login,@PathVariable(name="id",required=true) String id, Model model) {
         model.addAttribute("id", id);
+        model.addAttribute("login", login);
         model.addAttribute("project", projectRepository.findById(id).get());
 
         List<User> members = userRepository.findAllByProject(id);
@@ -40,6 +54,8 @@ public class ProjectController {
         User owner = userRepository.findById(user).get();
         project.owner=owner;
         model.addAttribute("project",project);
+        model.addAttribute("login", login);
+
 //        initModelList(model);
         return "/addProject";
     }
@@ -60,6 +76,8 @@ public class ProjectController {
             skillsList.add(skill);
         }
         System.out.println("skillsList = " + skillsList);
+        model.addAttribute("login", login);
+
         model.addAttribute("skills", skillsList);
         model.addAttribute("project",project);
 

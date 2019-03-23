@@ -12,5 +12,8 @@
     <p>Maxium Members: <input type="text" th:field="*{max_member}" /></p>
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 </form>
+<select th:each="skill : ${skills}">
+    <option value="${skill}" th:text="${skill}"></option>
+</select>
 </body>
 </html>

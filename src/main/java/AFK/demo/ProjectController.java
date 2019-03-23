@@ -24,8 +24,10 @@ public class ProjectController {
     protected ProjectSkillRepository projectSkillRepository;
 
     @GetMapping("/project/{id}")
-    public String searchProject(@PathVariable(name="id",required=true) String id, Model model) {
+    public String searchProject(@CookieValue(name="login" , defaultValue = "kazar") String login,@PathVariable(name="id",required=true) String id, Model model) {
         model.addAttribute("id", id);
+        model.addAttribute("project", projectRepository.findById(id).get());
+
         List<User> members = userRepository.findAllByProject(id);
         model.addAttribute("members",members);
         model.addAttribute("owner",projectRepository.findById(id).get().owner);
@@ -33,7 +35,7 @@ public class ProjectController {
     }
 
     @GetMapping("/profile/{user}/addProject")
-    public String addProject(Model model, @PathVariable(name="user",required=true) String user){
+    public String addProject(@CookieValue(name="login" , defaultValue = "kazar") String login,Model model, @PathVariable(name="user",required=true) String user){
         Project project = new Project();
         User owner = userRepository.findById(user).get();
         project.owner=owner;
@@ -52,7 +54,7 @@ public class ProjectController {
 
 
     @GetMapping("/addSkills/{project}")
-    public String addSkills(Model model, @PathVariable String project){
+    public String addSkills(@CookieValue(name="login" , defaultValue = "kazar") String login,Model model, @PathVariable String project){
         List<GlobalSkill> skillsList = new ArrayList<GlobalSkill>();
         for(GlobalSkill skill:skillRepository.findAll()){
             skillsList.add(skill);
@@ -82,15 +84,4 @@ public class ProjectController {
         return "redirect:/project/"+project;
     }
 
-    @RequestMapping(method = RequestMethod.GET)
-    public String initForm(Model model) {
-        Skill skill = new Skill();
-        model.addAttribute("skill", skill);
-        initModelList(model);
-        return "skill";
-    }
-
-    private void initModelList(Model model) {
-
-    }
 }

@@ -30,7 +30,7 @@
         <div id="menu-container">
             <ul>
                 <li><a href="/index.html">GO PREMIUM</a></li>
-                <li> <a href="profile/kazar"> <img id="login-icon" th:src="@{/images/login-icon.png}" src="../static/images/login-icon.png"></a></li>
+                <li> <a href="/profile/kazar"> <img id="login-icon" th:src="@{/images/login-icon.png}" src="../static/images/login-icon.png"></a></li>
                 <li><a href="/index.html">My Projects</a></li>
 
             </ul>
@@ -43,11 +43,11 @@
     <div style="clear: both"></div>
     <div class="grid-container">
 
-        <div class="ProjectName">Przykładowa nazwa projektu</div>
+        <div class="ProjectName" th:text="${project.id}">Przykładowa nazwa projektu</div>
 
         <div class="Image"><img th:src="@{/images/project-default.png}" src="../static/images/project-default.png" style="width: 400px"></div>
 
-        <div class="Description">Projekt zostal zreProjekt zostal zrealizowany.... celem projalizProjekt zostal zrealizowany.... celem projowany.... celem projektu jest blablblablblablalblb</div>
+        <div class="Description" th:text="${project.description}">Projekt zostal zreProjekt zostal zrealizowany.... celem projalizProjekt zostal zrealizowany.... celem projowany.... celem projektu jest blablblablblablalblb</div>
                
 
         <div class="Members">

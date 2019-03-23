@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface SkillRepository extends CrudRepository<Skill, SkillKey> {
-    @Query("select * from skill natural join user where userId = :user")
-    public List<Skill> findUsersSkills(@Param("user") String userId);
+
+    @Query(value = "select * from skill natural join user where user_id = :user", nativeQuery = true)
+    List<Skill> findUsersSkills(@Param("user") String userId);
 }

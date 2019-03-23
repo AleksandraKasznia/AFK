@@ -46,8 +46,10 @@ public class UserController {
     public String addUser(@ModelAttribute("/addUser")User user,
                           BindingResult result, Model model,
                           final RedirectAttributes redirectAttributes){
+        user.setId(user.getId().toLowerCase());
         userRepository.save(user);
-        return "/profile/"+user.getId();
+        model.addAttribute("user",user);
+        return "redirect:/profile/"+user.getId().toLowerCase();
     }
 
 }

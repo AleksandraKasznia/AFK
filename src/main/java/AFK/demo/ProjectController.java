@@ -20,31 +20,66 @@ public class ProjectController {
     private MembersRepository memberRepository;
     @Autowired
     private ProjectRepository projectRepository;
+    @Autowired
+    protected ProjectSkillRepository projectSkillRepository;
 
-    @GetMapping("/project")
-    public String searchProject(@RequestParam(name="id") String id, Model model) {
+    @GetMapping("/project/{id}")
+    public String searchProject(@PathVariable(name="id",required=true) String id, Model model) {
         model.addAttribute("id", id);
-        String project="";
-        for (User u:userRepository.findAll()) {
-            System.out.println("u = " + u);
-            project+=u.getName()+"<br>";
-        }
-        model.addAttribute("project",":"+project);
-        return "project";
+        List<User> members = userRepository.findAllByProject(id);
+        model.addAttribute("members",members);
+        model.addAttribute("owner",projectRepository.findById(id).get().owner);
+        return "project-view";
     }
 
-    @GetMapping("/addProject")
-    public String addProject(Model model){
+    @GetMapping("/profile/{user}/addProject")
+    public String addProject(Model model, @PathVariable(name="user",required=true) String user){
         Project project = new Project();
+        User owner = userRepository.findById(user).get();
+        project.owner=owner;
         model.addAttribute("project",project);
-        return "addProject";
+//        initModelList(model);
+        return "/addProject";
     }
     @PostMapping("/addProject")
-    public String addProject(@ModelAttribute("/addProject")Project project,
-                          BindingResult result, Model model,
-                          final RedirectAttributes redirectAttributes){
+    public String addProject(@ModelAttribute("/addProject") Project project,
+                             BindingResult result, Model model,
+                             final RedirectAttributes redirectAttributes){
+        model.addAttribute("project",project);
         projectRepository.save(project);
-        return "/project/"+project.id;
+        return "redirect:/project/"+project.id;
+    }
+
+
+    @GetMapping("/addSkills/{project}")
+    public String addSkills(Model model, @PathVariable String project){
+        List<GlobalSkill> skillsList = new ArrayList<GlobalSkill>();
+        for(GlobalSkill skill:skillRepository.findAll()){
+            skillsList.add(skill);
+        }
+        System.out.println("skillsList = " + skillsList);
+        model.addAttribute("skills", skillsList);
+        model.addAttribute("project",project);
+
+        SkillArray skillArray = new SkillArray();
+        skillArray.skillid = new GlobalSkill[skillsList.size()];
+        model.addAttribute("skillarray",skillArray);
+        return "addSkills";
+    }
+
+    @PostMapping("/addSkills/{project}")
+    public String addSkills(@ModelAttribute("/addSkills") SkillArray skillArray,
+                            BindingResult result, Model model,
+                            final RedirectAttributes redirectAttributes, @PathVariable String project){
+        model.addAttribute("skillarray",skillArray);
+        model.addAttribute("project",project);
+        Project p  = projectRepository.findById(project).get();
+        projectSkillRepository.deleteByProject(p.getId());
+        for(GlobalSkill s:skillArray.skillid)
+            projectSkillRepository.save(new ProjectSkill(p,s));
+
+
+        return "redirect:/project/"+project;
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -56,10 +91,6 @@ public class ProjectController {
     }
 
     private void initModelList(Model model) {
-        List<String> skillsList = new ArrayList<String>();
-        for(GlobalSkill skill:skillRepository.findAll()){
-            skillsList.add(skill.toString());
-        }
-        model.addAttribute("skills", skillsList);
+
     }
 }

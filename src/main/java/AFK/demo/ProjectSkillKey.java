@@ -19,6 +19,7 @@ public class ProjectSkillKey implements Serializable {
         this.projectId = skillName;
     }
 
+
     public String getSkillId() {
         return skillId;
     }

@@ -1,0 +1,83 @@
+<!doctype html>
+
+<html lang="en" xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head>
+  <meta charset="utf-8">
+  <title>HACKATHON!!</title>
+  <meta name="description" content="HACKATHON">
+  <meta name="author" content="AFK">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+  <link rel="stylesheet"  th:href="@{/css/project-view.css}" href="../static/css/project-view.css">
+  <link rel="stylesheet"  th:href="@{/css/header-style.css}" href="../static/css/header-style.css">
+  
+</head>
+
+<body>
+
+    <nav> 
+        
+        <img id="nav-icon"  th:src="@{/images/icon.png}"  src="../static/images/icon.png">
+        <div id="nazwaApki">NazwaApki</div>
+        
+        <div id="search-container">
+        <form action="???????">
+            <input type="text" placeholder="Search for projects" name="search">
+            <button type="submit">Search</button>
+        </form>
+        </div>
+
+        <div id="menu-container">
+            <ul>
+                <li><a href="/index.html">GO PREMIUM</a></li>
+                <li> <a href="profile/kazar"> <img id="login-icon" th:src="@{/images/login-icon.png}" src="../static/images/login-icon.png"></a></li>
+                <li><a href="/index.html">My Projects</a></li>
+
+            </ul>
+
+
+        </div>
+
+    </nav>
+
+    <div style="clear: both"></div>
+    <div class="grid-container">
+
+        <div class="ProjectName">Przykładowa nazwa projektu</div>
+
+        <div class="Image"><img th:src="@{/images/project-default.png}" src="../static/images/project-default.png" style="width: 400px"></div>
+
+        <div class="Description">Projekt zostal zreProjekt zostal zrealizowany.... celem projalizProjekt zostal zrealizowany.... celem projowany.... celem projektu jest blablblablblablalblb</div>
+               
+
+        <div class="Members">
+            
+            <div th:each="member : ${members}">
+
+            <div class="proj-member">
+                <img th:src="@{/images/default-avatar.png}" src="../static/images/default-avatar.png" style="width: 50px">
+                <a th:href="@{|/profile/${member.id}|}" th:text="${member.name}"/>
+
+
+            </div>
+
+            </div>
+
+            <div class="proj-member">
+                    <img th:src="@{/images/default-avatar.png}" src="../static/images/default-avatar.png" style="width: 50px">
+                    <a th:href="@{|/profile/${owner.id}|}"  th:text="${owner.name}"/>
+            </div>
+
+        </div>
+
+    
+    
+    
+    </div>
+
+
+
+
+
+</body>
+</html>

@@ -11,4 +11,10 @@ public class ProjectSkill {
     @NotNull
     private int requiredLevel;
 
+    public ProjectSkill(){}
+
+    public ProjectSkill(Project p, GlobalSkill s) {
+        ProjectSkillId=new ProjectSkillKey(s.getSkillId(),p.getId());
+        requiredLevel=0;
+    }
 }

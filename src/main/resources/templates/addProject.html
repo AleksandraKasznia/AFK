@@ -16,11 +16,13 @@
 <h1>Create your project</h1>
 <div class="form-style-5"></div>
 <form action="#" method="post" th:action="@{/addProject}" th:object="${project}">
+    <p>Nazwa: <input type="text" th:field="*{id}" /></p>
     <p>Description: <input type="text" th:field="*{description}" /></p>
     <p>How to contact me: <input type="text" th:field="*{kontakt}" /></p>
     <p>Maxium number of Members: <input type="number" th:field="*{max_member}" /></p>
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 </form>
+<<<<<<< HEAD
 </div>
 
 

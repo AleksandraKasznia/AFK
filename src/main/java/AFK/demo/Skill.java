@@ -11,4 +11,8 @@ public class Skill {
     @NotNull
     private int level;
 
+    @Override
+    public String toString() {
+        return skillId.getSkillId();
+    }
 }

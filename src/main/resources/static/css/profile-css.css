@@ -42,3 +42,28 @@ body {
 #name {
     font-size: 30px; 
 }
+
+.project {
+
+    width: 100%;
+    background-color: white;
+    display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr;
+      grid-template-areas: "ProjName Description Skills";
+
+}
+
+.ProjName {
+    grid-area: ProjName;
+    color: black;
+    font-size: 30px;
+ }
+
+.Description {
+    grid-area: Description;
+     }
+
+.Skills {
+    grid-area: Skills;
+ }
